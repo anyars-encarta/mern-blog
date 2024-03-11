@@ -39,7 +39,7 @@ const Home = () => {
 
             {
                 loading ?
-                    <h3>Loading blogs. Please wait...</h3> :
+                    <h3 className={classes.loading}>Loading blogs. Please wait...</h3> :
                     <div className={classes.blogList}>
                         {
                             blogsList.map((blogItem, index) => <div ke={blogItem._id} className={classes.blogContent}>
