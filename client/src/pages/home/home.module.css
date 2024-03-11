@@ -9,16 +9,22 @@
 
 .blogList {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 10px;
 }
 
-.blogList .blogContent {
+.blogContent {
     padding: 10px;
     border: 1px solid aqua;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.blogTitle {
+    display: flex;
+    justify-content: space-between;
 }
 
 .editDelete {

@@ -43,14 +43,17 @@ const Home = () => {
                     <div className={classes.blogList}>
                         {
                             blogsList.map((blogItem, index) => <div ke={blogItem._id} className={classes.blogContent}>
-                                <h3>{blogItem.title}</h3>
-                                <p>Blog {' '} {index + 1}</p>
+                                <div className={classes.blogTitle}>
+                                    <h3>{blogItem.title}</h3>
+                                    <p>Blog {' '} {index + 1}</p>
+                                </div>
+
                                 <p>{blogItem.description}</p>
                                 <p>{blogItem.date}</p>
 
                                 <div className={classes.editDelete}>
                                     <FaEdit size={30} className={classes.edit} />
-                                    <FaTrash size={30} className={classes.delete}/>
+                                    <FaTrash size={30} className={classes.delete} />
                                 </div>
                             </div>
                             )
