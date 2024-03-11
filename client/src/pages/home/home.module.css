@@ -2,13 +2,33 @@
     padding: 30px;
 }
 
+.blogsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
 .blogList {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
 
-.blogList div {
+.blogList .blogContent {
     padding: 10px;
     border: 1px solid red;
+}
+
+.editDelete {
+    float: right;
+    display: flex;
+    gap: 10px;
+}
+
+.edit, .delete {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.edit:hover, .delete:hover {
+    transform: scale(1.5);
 }
