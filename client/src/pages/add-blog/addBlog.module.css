@@ -1,5 +1,8 @@
 .wrapper {
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapper h1 {
@@ -11,4 +14,19 @@
     flex-direction: column;
     gap: 15px;
     width: 400px;
+}
+
+.formWrapper input, textarea {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.formWrapper button {
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: blueviolet;
+    border: none;
+    color: antiquewhite;
 }

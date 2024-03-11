@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import classes from './addBlog.module.css';
 import { GlobalContext } from '../../context/context';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 const AddBlog = () => {
     const { formData, setFormData } = useContext(GlobalContext);
     const navigate = useNavigate()
@@ -50,6 +51,7 @@ const AddBlog = () => {
                     placeholder='Enter Blog description'
                     id='description'
                     required
+                    rows={10}
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 />
