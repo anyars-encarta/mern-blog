@@ -15,7 +15,7 @@
 
 .blogList .blogContent {
     padding: 10px;
-    border: 1px solid red;
+    border: 1px solid aqua;
 }
 
 .editDelete {
@@ -30,5 +30,5 @@
 }
 
 .edit:hover, .delete:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
 }

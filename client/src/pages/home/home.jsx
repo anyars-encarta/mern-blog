@@ -42,8 +42,9 @@ const Home = () => {
                     <h3>Loading blogs. Please wait...</h3> :
                     <div className={classes.blogList}>
                         {
-                            blogsList.map(blogItem => <div ke={blogItem._id} className={classes.blogContent}>
+                            blogsList.map((blogItem, index) => <div ke={blogItem._id} className={classes.blogContent}>
                                 <h3>{blogItem.title}</h3>
+                                <p>Blog {' '} {index + 1}</p>
                                 <p>{blogItem.description}</p>
                                 <p>{blogItem.date}</p>
 
