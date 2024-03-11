@@ -32,6 +32,7 @@ const Home = () => {
         }
 
         if (result?.message) {
+            alert(result.message)
             fetchBlogs()
         }
     };
