@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/context";
 import axios from 'axios';
+import classes from './home.module.css';
 
 const Home = () => {
     const {blogsList, setBlogsList, loading, setLoading} = useContext(GlobalContext);
@@ -30,22 +31,22 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className={classes.wrapper}>
             <h1>Blogs List</h1>
             {
                 loading ? 
                 <h3>Loading blogs. Please wait...</h3> :
-                <div>
+                <div className={classes.blogList}>
                     {
                         blogsList.map(blogItem => <div ke={blogItem._id}>
                             <h3>{blogItem.title}</h3>
                             <p>{blogItem.description}</p>
                             <p>{blogItem.date}</p>
 
-                            <div>
+                            {/* <div>
                                 // Edit button
                                 // Delete button
-                            </div>
+                            </div> */}
                         </div>
                         )
                     }
