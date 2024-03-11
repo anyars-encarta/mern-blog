@@ -13,16 +13,26 @@ const Home = () => {
             const response = await axios.get('http://localhost:5000/api/blogs');
             const result = await response.data;
 
-            console.log(result);
-
             if (result && result.blogList && result.blogList.length > 0) {
                 setBlogsList(result.blogList)
                 setLoading(false)
             }
 
         } catch (e) {
-            console.log(e);
             setLoading(false)
+        }
+    };
+
+    const handleDeleteBlog = async (getCurrentId) => {
+        const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${getCurrentId}`);
+        const result = await response.data;
+        
+        if (result && result.blogList && result.blogList.length > 0) {
+            setBlogsList(result.blogList)
+        }
+
+        if (result?.message) {
+            fetchBlogs()
         }
     };
 
@@ -43,7 +53,7 @@ const Home = () => {
                     <div className={classes.blogList}>
                         {
                             blogsList.map((blogItem, index) => (
-                                <div ke={blogItem._id} className={classes.blogContent}>
+                                <div key={blogItem._id} className={classes.blogContent}>
                                     <div className={classes.blogTitle}>
                                         <h3>{blogItem.title}</h3>
                                         <p>Blog {' '} {index + 1}</p>
@@ -54,7 +64,7 @@ const Home = () => {
 
                                     <div className={classes.editDelete}>
                                         <FaEdit size={30} className={classes.edit} />
-                                        <FaTrash size={30} className={classes.delete} />
+                                        <FaTrash size={30} onClick={() => handleDeleteBlog(blogItem._id)} className={classes.delete} />
                                     </div>
                                 </div>
                             ))
