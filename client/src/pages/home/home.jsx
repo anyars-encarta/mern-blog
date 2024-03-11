@@ -41,7 +41,13 @@ const Home = () => {
                             <h3>{blogItem.title}</h3>
                             <p>{blogItem.description}</p>
                             <p>{blogItem.date}</p>
-                        </div>)
+
+                            <div>
+                                // Edit button
+                                // Delete button
+                            </div>
+                        </div>
+                        )
                     }
                 </div>
             }
