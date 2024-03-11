@@ -15,7 +15,7 @@
 .blogList {
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     gap: 10px;
 }
 
@@ -30,6 +30,12 @@
 .blogTitle {
     display: flex;
     justify-content: space-between;
+}
+
+.blogTime {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
 }
 
 .editDelete {

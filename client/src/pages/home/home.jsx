@@ -42,21 +42,22 @@ const Home = () => {
                     <h3 className={classes.loading}>Loading blogs. Please wait...</h3> :
                     <div className={classes.blogList}>
                         {
-                            blogsList.map((blogItem, index) => <div ke={blogItem._id} className={classes.blogContent}>
-                                <div className={classes.blogTitle}>
-                                    <h3>{blogItem.title}</h3>
-                                    <p>Blog {' '} {index + 1}</p>
-                                </div>
+                            blogsList.map((blogItem, index) => (
+                                <div ke={blogItem._id} className={classes.blogContent}>
+                                    <div className={classes.blogTitle}>
+                                        <h3>{blogItem.title}</h3>
+                                        <p>Blog {' '} {index + 1}</p>
+                                    </div>
+                                    <p className={classes.blogTime}>Published on {new Date(blogItem.date).toLocaleString()}</p>
 
-                                <p>{blogItem.description}</p>
-                                <p>{blogItem.date}</p>
+                                    <p>{blogItem.description}</p>
 
-                                <div className={classes.editDelete}>
-                                    <FaEdit size={30} className={classes.edit} />
-                                    <FaTrash size={30} className={classes.delete} />
+                                    <div className={classes.editDelete}>
+                                        <FaEdit size={30} className={classes.edit} />
+                                        <FaTrash size={30} className={classes.delete} />
+                                    </div>
                                 </div>
-                            </div>
-                            )
+                            ))
                         }
                     </div>
             }
