@@ -16,7 +16,7 @@ const fetchSingleBlog = async (req, res) => {
         return (res.status(404).json({ message: 'Blog Not Found' }))
     }
 
-    return (res.statu(200).json({ singleBlog }))
+    return (res.status(200).json({ singleBlog }))
 };
 
 // fetch list of blogs
@@ -97,10 +97,10 @@ const updateBlog = async (req, res) => {
             return (res.status(404).json({ message: 'Unable to update' }));
         }
 
-        return (res.send(200).json({ currentBlog }));
+        return (res.status(200).json({ currentBlog }));
 
     } catch (e) {
-        return (res.send(500).json({ message: 'Unable to Update! Please try again' }))
+        return (res.status(500).json({ message: 'Unable to Update! Please try again' }))
     }
 }
 

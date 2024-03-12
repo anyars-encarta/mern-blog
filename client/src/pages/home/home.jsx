@@ -3,10 +3,12 @@ import { GlobalContext } from "../../context/context";
 import axios from 'axios';
 import classes from './home.module.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const { blogsList, setBlogsList, loading, setLoading } = useContext(GlobalContext);
-
+    const { blogsList, setBlogsList, loading, setLoading} = useContext(GlobalContext);
+    const navigate = useNavigate();
+    
     const fetchBlogs = async () => {
         setLoading(true)
         try {
@@ -29,7 +31,7 @@ const Home = () => {
     const handleDeleteBlog = async (getCurrentId) => {
         const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${getCurrentId}`);
         const result = await response.data;
-        
+
         if (result && result.blogList && result.blogList.length > 0) {
             setBlogsList(result.blogList)
         }
@@ -40,8 +42,13 @@ const Home = () => {
         }
     };
 
+    const handleEditBlog = async (currentBlog) => {
+        navigate('/new-blog', { state: { currentBlog } })
+    }
+
     useEffect(() => {
         fetchBlogs()
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -67,7 +74,7 @@ const Home = () => {
                                     <p>{blogItem.description}</p>
 
                                     <div className={classes.editDelete}>
-                                        <FaEdit size={30} className={classes.edit} />
+                                        <FaEdit size={30} onClick={() => handleEditBlog(blogItem)} className={classes.edit} />
                                         <FaTrash size={30} onClick={() => handleDeleteBlog(blogItem._id)} className={classes.delete} />
                                     </div>
                                 </div>

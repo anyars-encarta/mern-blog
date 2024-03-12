@@ -6,9 +6,10 @@ const GlobalState = ({ children }) => {
     const [formData, setFormData] = useState({title: '', description: ''});
     const [blogsList, setBlogsList] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
 
     return(
-        <GlobalContext.Provider value={{formData, setFormData, blogsList, setBlogsList, loading, setLoading}}>
+        <GlobalContext.Provider value={{formData, setFormData, blogsList, setBlogsList, loading, setLoading, isEdit, setIsEdit}}>
             {children}
         </GlobalContext.Provider>
     )
