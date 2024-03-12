@@ -16,6 +16,9 @@ const Home = () => {
             if (result && result.blogList && result.blogList.length > 0) {
                 setBlogsList(result.blogList)
                 setLoading(false)
+            } else {
+                setLoading(false)
+                setBlogsList({})
             }
 
         } catch (e) {
@@ -53,7 +56,7 @@ const Home = () => {
                     <h3 className={classes.loading}>Loading blogs. Please wait...</h3> :
                     <div className={classes.blogList}>
                         {
-                            blogsList.map((blogItem, index) => (
+                            blogsList && blogsList.length ? blogsList.map((blogItem, index) => (
                                 <div key={blogItem._id} className={classes.blogContent}>
                                     <div className={classes.blogTitle}>
                                         <h3>{blogItem.title}</h3>
@@ -68,7 +71,7 @@ const Home = () => {
                                         <FaTrash size={30} onClick={() => handleDeleteBlog(blogItem._id)} className={classes.delete} />
                                     </div>
                                 </div>
-                            ))
+                            )) : <h3 className={classes.loading}>No blogs. Please add some blogs</h3>
                         }
                     </div>
             }

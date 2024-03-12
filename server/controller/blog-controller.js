@@ -1,6 +1,24 @@
 const mongoose = require('mongoose');
 const Blog = require('../model/Blog');
 
+// fetch a single blog
+const fetchSingleBlog = async (req, res) => {
+    const id = req.params.id;
+    let singleBlog;
+
+    try {
+        singleBlog = await Blog.findById(id);
+    } catch (e) {
+        console.log(e)
+    }
+
+    if (!singleBlog) {
+        return (res.status(404).json({ message: 'Blog Not Found' }))
+    }
+
+    return (res.statu(200).json({ singleBlog }))
+};
+
 // fetch list of blogs
 const fetchListOfBlogs = async (req, res) => {
     let blogList;
@@ -67,23 +85,23 @@ const deleteBlog = async (req, res) => {
 
 // update a blog
 const updateBlog = async (req, res) => {
-  const id = req.params.id;
-  const { title, description } = req.body;
+    const id = req.params.id;
+    const { title, description } = req.body;
 
-  let currentBlog;
+    let currentBlog;
 
-  try {
-    currentBlog = await Blog.findByIdAndUpdate(id, { title, description });
+    try {
+        currentBlog = await Blog.findByIdAndUpdate(id, { title, description });
 
-    if(!currentBlog) {
-        return (res.status(404).json({ message : 'Unable to update'}));
+        if (!currentBlog) {
+            return (res.status(404).json({ message: 'Unable to update' }));
+        }
+
+        return (res.send(200).json({ currentBlog }));
+
+    } catch (e) {
+        return (res.send(500).json({ message: 'Unable to Update! Please try again' }))
     }
-
-    return (res.send(200).json({ currentBlog }));
-
-  } catch (e) {
-    return (res.send(500).json({ message : 'Unable to Update! Please try again'}))
-  }
 }
 
-module.exports = { fetchListOfBlogs, addNewBlog, deleteBlog, updateBlog };
+module.exports = { fetchSingleBlog, fetchListOfBlogs, addNewBlog, deleteBlog, updateBlog };
