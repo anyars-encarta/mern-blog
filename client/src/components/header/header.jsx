@@ -4,14 +4,14 @@ import classes from './header.module.css';
 const Header = () => {
     return (
         <div className={classes.header}>
-            <h3><Link to={'/'}>MERN Blog</Link></h3>
+            <h3><Link to={'/'} className={classes.link}>MERN Blog</Link></h3>
             <div>
                 <ul>
                     <li>
-                        <NavLink to={'/'}>Home</NavLink>
+                        <NavLink to={'/'} className={classes.link}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/new-blog'}>New Blog</NavLink>
+                        <NavLink to={'/new-blog'} className={classes.link}>New Blog</NavLink>
                     </li>
                 </ul>
             </div>
