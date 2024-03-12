@@ -18,7 +18,7 @@ const Home = () => {
                 setLoading(false)
             } else {
                 setLoading(false)
-                setBlogsList({})
+                setBlogsList([])
             }
 
         } catch (e) {
