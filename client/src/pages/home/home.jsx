@@ -12,7 +12,9 @@ const Home = () => {
     const fetchBlogs = async () => {
         setLoading(true)
         try {
-            const response = await axios.get('http://localhost:5000/api/blogs');
+            const response = await axios.get('https://mern-blog-9hhyr3avf-anyars-yussifs-projects.vercel.app/api/blogs');
+            // development
+            // const response = await axios.get('http://localhost:5000/api/blogs');
             const result = await response.data;
 
             if (result && result.blogList && result.blogList.length > 0) {
@@ -29,7 +31,9 @@ const Home = () => {
     };
 
     const handleDeleteBlog = async (getCurrentId) => {
-        const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${getCurrentId}`);
+        const response = await axios.delete(`https://mern-blog-9hhyr3avf-anyars-yussifs-projects.vercel.app/api/blogs/delete/${getCurrentId}`);
+        // development
+        // const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${getCurrentId}`);
         const result = await response.data;
 
         if (result && result.blogList && result.blogList.length > 0) {
