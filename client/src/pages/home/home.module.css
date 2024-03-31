@@ -1,0 +1,54 @@
+.wrapper {
+    padding: 30px;
+}
+
+.blogsHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.loading {
+    text-align: center;
+}
+
+.blogList {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 10px;
+}
+
+.blogContent { 
+    padding: 10px;
+    border: 1px solid aqua;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.blogTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blogTime {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+.editDelete {
+    float: right;
+    display: flex;
+    gap: 10px;
+}
+
+.edit, .delete {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.edit:hover, .delete:hover {
+    transform: scale(1.3);
+}
