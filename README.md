@@ -39,7 +39,7 @@
 <!-- INTRO -->
 # 📖 MERN Blog<a name="about-project"></a>
 
-> MERN Blog is a full-stack interactive app that allows users to add, edit and delete blogs. edit and delete blogs.
+> MERN Blog is a full-stack interactive app that allows users to add, edit and delete blogs. edit and delete
 
 ## 🛠 Built With <a name="built-with"></a>
 1. React
