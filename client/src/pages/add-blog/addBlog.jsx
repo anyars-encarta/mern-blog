@@ -11,8 +11,8 @@ const AddBlog = () => {
 
     const handleAddBlog = async () => {
         const response = isEdit
-            ? await axios.put(`https://mern-blog-9hhyr3avf-anyars-yussifs-projects.vercel.app/api/blogs/update/${location.state.currentBlog._id}`, { title: formData.title, description: formData.description })
-            : await axios.post('https://mern-blog-9hhyr3avf-anyars-yussifs-projects.vercel.app/api/blogs/new', { title: formData.title, description: formData.description });
+            ? await axios.put(`https://mern-blog-api-kappa.vercel.app/api/blogs/update/${location.state.currentBlog._id}`, { title: formData.title, description: formData.description })
+            : await axios.post('https://mern-blog-api-kappa.vercel.app/api/blogs/new', { title: formData.title, description: formData.description });
 
             // development
             // ? await axios.put(`http://localhost:5000/api/blogs/update/${location.state.currentBlog._id}`, { title: formData.title, description: formData.description })
